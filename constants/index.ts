@@ -55,22 +55,20 @@ export const NAV_LINKS = [
         'About Hilink',
         'Press Releases',
         'Environment',
-        'Jobs',
         'Privacy Policy',
-        'Contact Us',
       ],
     },
     {
       title: 'Our Community',
-      links: ['Climbing xixixi', 'Hiking hilink', 'Hilink kinthill'],
+      links: ['Climbing Eco', 'Leaf Travel', 'Green Map'],
     },
   ];
   
   export const FOOTER_CONTACT_INFO = {
     title: 'Contact Us',
     links: [
-      { label: 'Admin Officer', value: '123-456-7890' },
-      { label: 'Email Officer', value: 'hilink@akinthil.com' },
+      { label: 'Enterprise Phone', value: '123-456-7890' },
+      { label: 'Email Enterprise', value: 'Ecopath@gmail.com' },
     ],
   };
   

@@ -155,3 +155,64 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.inter{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+
+.heroContainer {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as per your design */
+  color: #fff; /* Adjust the text color as per your design */
+}
+
+.content {
+  text-align: center;
+  max-width: 1200px; /* Adjust the max-width as per your design */
+}
+
+.heading {
+  font-size: 3rem; /* Adjust the font size as per your design */
+  margin-bottom: 0.5em;
+}
+
+.subheading {
+  font-size: 2rem; /* Adjust the font size as per your design */
+  margin-bottom: 1em;
+}
+
+.text {
+  font-size: 1.25rem; /* Adjust the font size as per your design */
+}
+
+
+.bg-bg-img-1 {
+  background-image: url('/img-1.png'); /* Correct path to image */
+}
+
+.bg-bg-img-2 {
+  background-image: url('/img-2.png'); /* Correct path to image */
+}
+
+.bg-bg-img-3 {
+  background-image: url('/img-3.png'); /* Correct path to image */
+}
+.button:hover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shine 1.5s infinite linear;
+}

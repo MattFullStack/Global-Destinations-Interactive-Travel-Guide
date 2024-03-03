@@ -1,40 +1,24 @@
-import { NAV_LINKS } from "@/constants"
-import Image from "next/image"
-import Link from "next/link"
-import Button from "./Button"
+import React from 'react';
+import Link from 'next/link'; // Make sure to import Link from 'next/link'
 
 const Navbar = () => {
   return (
-    <nav className="flexBetween max-container padding-container relative z-30 py-5">
-      <Link href="/">
-        <Image src="/hilink-logo.svg" alt="logo" width={74} height={29} />
-        </Link>
-
-        <ul className="hidden h-full gap-12 lg:flex">
-            {NAV_LINKS.map((link) => (
-                <Link href={link.href} key={link.key} className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold">
-                    {link.label}
-                </Link>
-            ))}
-        </ul>
-
-        <div className="lg:flexCenter hidden">
-            <Button
-            type="button"
-            title="Login"
-            icon="/user.svg"
-            variant="btn_dark_green"
-            />
-        </div>
-        <Image
-            src="menu.svg"
-            alt="menu"
-            width={32}
-            height={32}
-            className="inline-block cursor-pointer lg:hidden"
-        />
+    <nav className="flex items-center justify-between p-4">
+      <h1 className="text-xl font-bold pl-4">EcoPath</h1>
+      <div className="hidden text-sm inter md:flex space-x-20">
+        {/* Use Link with the legacyBehavior prop if you want to wrap an <a> tag */}
+        <Link href="/" legacyBehavior><a className="hover:text-gray-500 transition duration-300">Home</a></Link>
+        <Link href="/services" legacyBehavior><a className="hover:text-gray-500 transition duration-300">Services</a></Link>
+        <Link href="/pricing" legacyBehavior><a className="hover:text-gray-500 transition duration-300">Pricing</a></Link>
+        <Link href="/contact" legacyBehavior><a className="hover:text-gray-500 transition duration-300">Contact Us</a></Link>
+      </div>
+      <div className='px-4 py-4'>
+      <button className="border-2 rounded-full px-4 py-2 bg-gray-100  hover:bg-gray-200 transition duration-300">
+        <div className='inter text-sm'>Menu</div>
+      </button>
+      </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,55 +1,71 @@
-import Image from 'next/image'
-import React from 'react'
+import React from 'react';
 
-const Guide = () => {
-  return (
-    <section className="flexCenter flex-col">
-      <div className="padding-container max-container w-full pb-24">
-        <Image src="/camp.svg" alt="camp" width={50} height={50} />
-        <p className="uppercase regular-18 -mt-1 mb-3 text-green-50">
-          We are here for you
-        </p>
-        <div className="flex flex-wrap justify-between gap-5 lg:gap-10">
-          <h2 className="bold-40 lg:bold-64 xl:max-w-[390px]">Guide You to Easy Path</h2>
-          <p className="regular-16 text-gray-30 xl:max-w-[520px]">Only with the hilink application you will no longer get lost and get lost again, because we already support offline maps when there is no internet connection in the field. Invite your friends, relatives and friends to have fun in the wilderness through the valley and reach the top of the mountain</p>
-        </div>
-      </div>
-
-      <div className="flexCenter max-container relative w-full">
-        <Image 
-          src="/boat.png"
-          alt="boat"
-          width={1440}
-          height={580}
-          className="w-full object-cover object-center 2xl:rounded-5xl"
-        />
-
-        <div className="absolute flex bg-white py-8 pl-5 pr-7 gap-3 rounded-3xl border shadow-md md:left-[5%] lg:top-20">
-          <Image 
-            src="/meter.svg"
-            alt="meter"
-            width={16}
-            height={158}
-            className="h-full w-auto"
-          />
-          <div className="flexBetween flex-col">
-            <div className='flex w-full flex-col'>
-              <div className="flexBetween w-full">
-                <p className="regular-16 text-gray-20">Destination</p>
-                <p className="bold-16 text-green-50">48 min</p>
-              </div>
-              <p className="bold-20 mt-2">Aguas Calientes</p>
-            </div>
-
-            <div className='flex w-full flex-col'>
-              <p className="regular-16 text-gray-20">Start track</p>
-              <h4 className="bold-20 mt-2 whitespace-nowrap">Wonorejo Pasuruan</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+interface GuideStepProps {
+  icon: string;
+  title: string;
+  description: string;
+  iconWidth?: number; // Optional width for icon
+  iconHeight?: number; // Optional height for icon
 }
 
-export default Guide
+const GuideStep: React.FC<GuideStepProps> = ({
+  icon,
+  title,
+  description,
+  iconWidth = 50, 
+  iconHeight = 50, 
+}) => {
+  return (
+    // Increase the height and add more vertical padding
+    <div className="flex flex-col items-center p-6 border rounded-lg shadow-md  justify-center h-80 transition duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+      <img
+        src={icon}
+        alt={title}
+        className="mb-4"
+        style={{ width: `${iconWidth}px`, height: `${iconHeight}px` }} // Inline styles to control icon size
+      />
+      <div className="px-4">
+        <h3 className="text-lg font-semibold mb-4 text-center">{title}</h3>
+        <p className="text-center">{description}</p>
+      </div>
+    </div>
+  );
+};
+
+const Guide: React.FC = () => {
+  return (
+    <section className="py-14 px-6 lg:px-12">
+      <div className="text-center mb-8 pb-4">
+        <h2 className="text-2xl font-semibold"
+        style={{ color: '#3A3A3A', fontSize: '2.80rem', lineHeight: '1.4' }}>How It Works:</h2>
+        <h2 className="text-2xl font-semibold"
+        style={{ color: '#3A3A3A', fontSize: '2.80rem', lineHeight: '1.2' }}>Your Green Journey in Three Steps</h2>
+      </div>
+      <div className="flex justify-around gap-4 md:gap-8 items-stretch">
+        <GuideStep
+          icon="/icon1.png"
+          title="Choose Your Destination"
+          description="Select from an array of vetted eco-friendly locations"
+          iconWidth={45}
+          iconHeight={45}
+        />
+        <GuideStep
+          icon="/icon3.png"
+          title="Plan Your Adventure"
+          description="Customize your trip with sustainable activities and experiences"
+          iconWidth={46}
+          iconHeight={46}
+        />
+        <GuideStep
+          icon="/icon2.png"
+          title="Travel with Purpose"
+          description="Embark on your journey knowing every step preserves the environment"
+          iconWidth={45}
+          iconHeight={45}
+        />
+      </div>
+    </section>
+  );
+};
+
+export default Guide;
